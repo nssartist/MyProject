@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Random Hex</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <style>
+        
+        #container{
+            width: 360px;
+            height: 640px;
+            margin: 0 auto 0 auto;
+        }
+        #btn{
+            display: block;
+            width:90%;
+            height: 50px;
+            line-height: 50px;
+            background-color: black;
+            border-radius: 10px;
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: 24px;
+            letter-spacing: 1px;
+            color: white;
+            height: 50px;
+            margin: 20px auto 20px auto;
+        }
+        #color{
+            width: 90%;
+            height: 320px;
+            border-radius: 10px;
+            margin: 0 auto 20px auto;
+        }
+        #hex{
+            width: 90%;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 20px;
+            letter-spacing: 1px;
+            margin: 0 auto 0 auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id="btn" onclick="hex_code();">GENERATE HEX</button>
+        <div id="color"></div>
+        <div id="hex"></div>
+    </div>
+
+<script>
+
+    
+    function random_num(){
+    var random_num = Math.floor(Math.random() * 15-1) + 1;  
+    var random_hex = random_num.toString(16);
+    return random_hex;
+    };
+    
+    function hex_code(){
+    var r1 = random_num();
+    var r2 = random_num();
+    var g1 = random_num();
+    var g2 = random_num();
+    var b1 = random_num();
+    var b1 = random_num();
+    var final_hex = "#"+r1+r2+g1+g2+b1+b1;
+    var color_div = document.getElementById("hex");
+    var hex_div = document.getElementById("color");
+    color_div.innerHTML = final_hex;
+    color_div.style.color = final_hex;
+    hex_div.style.backgroundColor = final_hex;
+    //$('#color').css('background-color', final_hex);
+    //alert(final_hex);
+    };
+
+/*
+    function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+*/
+</script>
+
+</body>
+</html>
